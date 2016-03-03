@@ -1,17 +1,41 @@
 import _ from 'lodash';
+import uuid from 'uuid';
 
-const vnexpressRegex = /vnexpress\.net/g;
-const replaceHistoryUrl = 'https://twitter.com/mariaozawaav'
+const vnexpressRegex = /xvideos\.com/g;
 
-chrome.history.onVisited.addListener(function(result){
-  if(vnexpressRegex.test(result.url)){
-   chrome.history.deleteUrl({url : result.url},function(){
-    console.log('removed history ', result.url);
-   });
-   chrome.history.addUrl({url : replaceHistoryUrl},function(){
-    console.info("replace " + result.url + " by " + replaceHistoryUrl);
-   });
-  }
+chrome.history.onVisited.addListener(function (result) {
+    var isNotPass = vnexpressRegex.test(result.url);
+    console.warn('History_onVisited',result.url, isNotPass);
+});
+
+chrome.history.onVisitRemoved.addListener(function(obj){
+    console.warn('History_onRemoved',obj.urls);
+});
+
+function onWebNav(details) {
+    console.info(details);
+    if (details.frameId === 0) {
+        // Top-level frame
+        chrome.pageAction.show(details.tabId);
+    }
+}
+var filter = {
+    url: [{
+        urlContains: 'xvideos.com'
+    }]
+};
+chrome.webNavigation.onCommitted.addListener(onWebNav, filter);
+
+chrome.runtime.onMessage.addListener(function(msg, sender){
+    if(msg.action === 'removeHistory'){
+        chrome.history.deleteUrl({url: msg.url}, function () {
+            console.log('removed history ', msg.url);
+        });
+        let replaceHistoryUrl = 'https://twitter.com/?hash=' + uuid();
+        chrome.history.addUrl({url: replaceHistoryUrl}, function () {
+            console.info("replace " + msg.url + " by " + replaceHistoryUrl);
+        });
+    }
 })
 
 // Setting popup icon

@@ -1,7 +1,7 @@
 {
-  "name": "__MSG_extName",
+  "name": "__MSG_extName__",
   "version": "0.0.1",
-  "description": "__MSG_extDescription",
+  "description": "__MSG_extDescription__",
   "private": true,
   "scripts": {
     "start": "npm run dev",
@@ -40,12 +40,17 @@
     "jquery": "^2.2.1",
     "json-loader": "0.5.4",
     "lodash": "4.1.0",
+    "lowdb": "^0.12.5",
     "pure": "^2.67.0",
     "purecss": "^0.6.0",
+    "riot": "^2.3.16",
+    "riotjs-loader": "^2.0.0",
     "rss-parser": "^2.2.4",
     "script-loader": "^0.6.1",
     "style-loader": "^0.13.0",
+    "underscore-db": "^0.9.1",
     "url-loader": "0.5.7",
+    "uuid": "^2.0.1",
     "webpack": "1.12.2",
     "webpack-dev-server": "1.12.1"
   }
