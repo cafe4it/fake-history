@@ -1,4 +1,9 @@
-import welcome from 'shared/welcome'
-import "shared/page.css"
+import 'style!css!purecss/build/pure-min.css';
+import './index.css';
 
-welcome('options/index.js');
+import '../shared/ads.js';
+
+document.title = chrome.i18n.getMessage('options_page_Title');
+
+
+

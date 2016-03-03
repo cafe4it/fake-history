@@ -1,10 +1,14 @@
 {
-  "extName" : {
-    "message" : "Fake History",
-    "description" : "Extension name"
+  "extName": {
+    "message": "Fake History",
+    "description": "Extension name"
   },
-  "extDescription" : {
-    "message" : "Fake history for fun...",
-    "description" : "Extension description"
+  "extDescription": {
+    "message": "Fake history for fun...",
+    "description": "Extension description"
+  },
+  "options_page_Title": {
+    "message": "Setup | Fake History",
+    "description": "Extension description"
   }
 }
