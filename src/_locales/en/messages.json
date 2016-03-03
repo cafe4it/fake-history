@@ -1,0 +1,10 @@
+{
+  "extName" : {
+    "message" : "Fake History",
+    "description" : "Extension name"
+  },
+  "extDescription" : {
+    "message" : "Fake history for fun...",
+    "description" : "Extension description"
+  }
+}
