@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import uuid from 'uuid';
 
-const vnexpressRegex = /xvideos\.com/g;
+const vnexpressRegex = /vnexpress\.net/g;
 
 chrome.history.onVisited.addListener(function (result) {
     var isNotPass = vnexpressRegex.test(result.url);
@@ -13,18 +13,18 @@ chrome.history.onVisitRemoved.addListener(function(obj){
 });
 
 function onWebNav(details) {
-    console.info(details);
-    if (details.frameId === 0) {
-        // Top-level frame
-        chrome.pageAction.show(details.tabId);
+    console.log(details);
+    if(details.frameId === 0){
+        chrome.runtime.sendMessage({action : 'removeHistory', url : details.url});
     }
 }
 var filter = {
     url: [{
-        urlContains: 'xvideos.com'
+        originAndPathMatches : '(vnexpress|dantri.com.vn|news.zing.vn|porn)'
     }]
 };
-chrome.webNavigation.onCommitted.addListener(onWebNav, filter);
+chrome.webNavigation.onBeforeNavigate.addListener(onWebNav, filter);
+//chrome.webNavigation.onCommitted.addListener(onWebNav, filter);
 
 chrome.runtime.onMessage.addListener(function(msg, sender){
     if(msg.action === 'removeHistory'){
