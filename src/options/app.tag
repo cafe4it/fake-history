@@ -1,29 +1,12 @@
-<app id="layout" class="content pure-g">
-    <left-menu/>
+<app id="layout" class="content">
+    <topMenu></topMenu>
 </app>
 
-<left-menu id="nav" class="pure-u">
-    <a href="#" class="nav-menu-button">Menu</a>
-
-    <div class="nav-inner">
-        <button class="primary-button pure-button">Compose</button>
-
-        <div class="pure-menu">
-            <ul class="pure-menu-list">
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Inbox <span
-                        class="email-count">(2)</span></a></li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Important</a></li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sent</a></li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Drafts</a></li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Trash</a></li>
-                <li class="pure-menu-heading">Labels</li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span
-                        class="email-label-personal"></span>Personal</a></li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span class="email-label-work"></span>Work</a>
-                </li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span
-                        class="email-label-travel"></span>Travel</a></li>
-            </ul>
-        </div>
-    </div>
-</left-menu>
+<topMenu class="pure-menu pure-menu-horizontal">
+    <a href="#" class="pure-menu-heading">Your Logo</a>
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Home</a></li>
+        <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Pricing</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Contact</a></li>
+    </ul>
+</topMenu>
